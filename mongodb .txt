@@ -1,4 +1,0 @@
-mongodb 
-database user=solaradmin1311
-pass-admin1311
-connection string : mongodb+srv://solaradmin1311:admin1311@cluster0.1gqjzqw.mongodb.net/?appName=Cluster0
