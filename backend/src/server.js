@@ -3,8 +3,10 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 const connectDB = require('./config/db')
 
-// Import routes
+// Routes
 const authRoutes = require('./routes/authRoutes')
+const applicationRoutes = require('./routes/applicationRoutes')
+const solarRoutes = require('./routes/solarRoutes')
 
 dotenv.config()
 connectDB()
@@ -14,8 +16,10 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// Routes
+// API Routes
 app.use('/api/auth', authRoutes)
+app.use('/api/applications', applicationRoutes)
+app.use('/api/solar', solarRoutes)
 
 // Test route
 app.get('/', (req, res) => {
