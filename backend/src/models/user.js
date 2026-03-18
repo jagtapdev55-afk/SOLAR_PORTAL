@@ -41,13 +41,12 @@ const userSchema = new mongoose.Schema({
 })
 
 // Before saving user — encrypt the password automatically
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function() {
   // Only encrypt if password was changed
-  if (!this.isModified('password')) return next()
+  if (!this.isModified('password')) return
 
   // Encrypt password with strength of 10
   this.password = await bcrypt.hash(this.password, 10)
-  next()
 })
 
 // Method to check if entered password is correct
